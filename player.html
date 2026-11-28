@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+    audio { width: 100%; height: 40px; display: block; }
+  </style>
+</head>
+<body>
+  <audio id="reproductor" controls autoplay loop preload="auto"></audio>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get('src');
+    if (src) {
+      const audio = document.getElementById('reproductor');
+      audio.src = src;
+      audio.play().catch(() => {});
+    }
+  </script>
+</body>
+</html>
